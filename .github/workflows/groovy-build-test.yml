@@ -37,4 +37,4 @@ jobs:
         cache: 'gradle' # Cache Gradle dependencies
 
     - name: Build with Gradle
-      run: ./gradlew.bat build # Execute the build using the Windows wrapper script
+      run: gradlew.bat build
