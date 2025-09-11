@@ -37,4 +37,4 @@ jobs:
         cache: 'gradle' # Cache Gradle dependencies
 
     - name: Build with Gradle
-      run: gradlew.bat build
+      run: ./gradlew.bat build
