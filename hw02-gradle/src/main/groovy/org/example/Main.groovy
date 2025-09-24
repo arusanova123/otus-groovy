@@ -87,7 +87,7 @@ class MoneyPacks {
         moneyPacks*.toString().findAll().join("\r\n") + "\r\n= ${this.sum()}"
     }
 
-    MoneyPacks getMoney (Integer value) {
+    MoneyPacks rightShift (Integer value) {
         def rest = value
         def resPacks = new MoneyPacks()
         this.moneyPacks.each {mp ->
@@ -113,11 +113,11 @@ class ATM {
     def getCurrentMoney () {
         moneyPacks.sum()
     }
-    def putMoney (MoneyPacks newMoneyPacks) {
+    def leftShift (MoneyPacks newMoneyPacks) {
         moneyPacks += newMoneyPacks
     }
-    MoneyPacks getMoney (int value) {
-        def resPacks = moneyPacks.getMoney(value)
+    MoneyPacks rightShift (int value) {
+        def resPacks = moneyPacks >> value
         if (!resPacks)
             throw new Exception ("Ошибка: Невозможно выдать запрошенную сумму")
         else {
@@ -137,10 +137,10 @@ assert (mp+mp2).sum() == 31000
 assert (mp-mp2).sum() == 6000
 
 def atm = new ATM ()
-atm.putMoney(mp2)
+atm << mp2
 assert atm.getCurrentMoney() == 12500
-atm.putMoney(mp)
+atm << mp
 assert atm.getCurrentMoney() == 31000
-def mp3 = atm.getMoney(7000)
+def mp3 = atm >> 7000
 assert mp3.sum() == 7000
 assert atm.getCurrentMoney() == 24000
