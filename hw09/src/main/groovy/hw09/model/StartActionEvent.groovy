@@ -1,7 +1,7 @@
-package org.example.model
+package hw09.model
 
-import org.example.model.Action
-import org.example.model.Event
+import hw09.model.Action
+import hw09.model.Event
 
 import java.time.LocalDateTime
 

@@ -1,6 +1,6 @@
-package org.example.service
+package hw09.service
 
-import org.example.model.Event
+import hw09.model.Event
 
 class EventBus {
     def consumers = []

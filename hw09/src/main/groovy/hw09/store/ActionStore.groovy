@@ -1,4 +1,4 @@
-package org.example.store
+package hw09.store
 
 class ActionStore {
 }

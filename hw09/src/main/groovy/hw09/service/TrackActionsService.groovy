@@ -1,9 +1,9 @@
-package org.example.service
+package hw09.service
 
-import org.example.model.Event
-import org.example.service.EventBus
-import org.example.model.StartActionEvent
-import org.example.store.ActionStore
+import hw09.model.Event
+import hw09.service.EventBus
+import hw09.model.StartActionEvent
+import hw09.store.ActionStore
 
 import java.time.LocalDateTime
 

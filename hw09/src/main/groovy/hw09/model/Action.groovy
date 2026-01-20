@@ -1,13 +1,16 @@
-package org.example.model
+package hw09.model
+
+import io.micronaut.serde.annotation.Serdeable
 
 import java.time.Duration
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
+@Serdeable
 class Action {
     LocalDateTime start
     String name
-    Duration duration // seconds
+    public Duration duration
 
     // конструктор
     def Action (String name, Duration duration, LocalDateTime start =  null) {

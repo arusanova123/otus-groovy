@@ -1,14 +1,17 @@
-package org.example.model
+package hw09.model
 
-import org.example.model.Action
+import hw09.model.Action
+import io.micronaut.serde.annotation.Serdeable
+
 import java.time.Duration
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
+@Serdeable
 class Task {
     LocalDateTime start
     String name
-    List actions = []
+    List <Action> actions = []
 
     Task (String name, LocalDateTime start) {
         this.name = name
@@ -42,11 +45,12 @@ class Task {
 
     String toString() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yy HH:mm")
-        "Task: $name \t [Start: ${start.format(formatter)} \t End: ${getEnd().format(formatter)} \t Actions: ${actions.size()}]"
+        "Task: $name \t [Start: ${start.format(formatter)} \t End: ${getEnd().format(formatter)} \t Actions: ${actions.size()}]\r\n" +
+                this.showActions()
     }
 
     String showActions () {
-        actions.collect {"$it"}.join ("\r\n")
+        actions.collect {"$it"}.join ("\t\t\r\n")
     }
 
     LocalDateTime getEnd () {
@@ -57,7 +61,7 @@ class Task {
     }
 
     Duration getDuration() {
-        actions*.duration.sum()
+        actions*.duration.sum() as Duration
     }
 
     boolean equals (Task other) {

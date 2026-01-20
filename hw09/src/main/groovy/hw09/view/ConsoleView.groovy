@@ -1,8 +1,8 @@
-package org.example.view
+package hw09.view
 
-import org.example.model.Event
-import org.example.service.EventBus
-import org.example.service.ToDoListManager
+import hw09.model.Event
+import hw09.service.EventBus
+import hw09.service.ToDoListManager
 
 class ConsoleView {
     ToDoListManager manager
